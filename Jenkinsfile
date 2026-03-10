@@ -102,9 +102,7 @@ pipeline {
       }
     }
 
-    stage('Deploy + Healthcheck (main only)') {
-      // Only deploy from main branch to avoid random feature branches deploying
-      when { branch 'main' }
+    stage('Deploy + Healthcheck') {
 
       steps {
         sh 'chmod +x ci/deploy/*.sh'
