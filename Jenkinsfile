@@ -135,6 +135,7 @@ pipeline {
       // Helpful runtime status for debugging in Jenkins logs
       sh "sudo systemctl status ${SERVICE_NAME} --no-pager || true"
       sh "journalctl -u ${SERVICE_NAME} -n 80 --no-pager || true"
+      sh "sudo -n systemctl status ${SERVICE_NAME} --no-pager || true"
     }
   }
 }
