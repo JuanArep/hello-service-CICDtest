@@ -7,11 +7,11 @@ This repo is a minimal Java service used to learn and validate an enterprise-sty
 - Deployment on the same WSL host using **symlink-based releases** + **systemd**
 - Healthcheck and rollback automation via scripts
 
-> Evidence level: this README reflects the concrete setup we implemented in WSL + Jenkins in this project (not generic guidance).
+> Evidence level: this README reflects the concrete setup implemented in WSL + Jenkins in this project (not generic guidance).
 
 ---
 
-## 1) What we built (end-to-end flow)
+## 1) What was built (end-to-end flow)
 
 ### CI (every build)
 1. Checkout source from GitHub
@@ -78,7 +78,7 @@ This repo is a minimal Java service used to learn and validate an enterprise-sty
 
 ## 3) WSL host folder structure (deployment layout)
 
-- We deployed to a conventional Linux location for third-party apps:
+- Deployed to a conventional Linux location for third-party apps:
  - /opt/apps/hello-service/
  - releases/
  - bootstrap/
@@ -88,7 +88,7 @@ This repo is a minimal Java service used to learn and validate an enterprise-sty
  - app.env
  - current -> /opt/apps/hello-service/releases/<releaseId>
  - run/ (optional; systemd manages PID, but kept for future runtime files)
- - logs/ (optional; we use journald currently)
+ - logs/ (optional; use journald currently)
 
  
 ### Purpose of each folder
@@ -165,7 +165,7 @@ Permissions (required for deployment automation)
 - Jenkins needs controlled elevated rights to:
     - restart/status the service via systemctl
     - write to /opt/apps/hello-service during deploy
-- We used sudoers rules to allow non-interactive sudo for the exact commands used (including args like --no-pager).
+- Used sudoers rules to allow non-interactive sudo for the exact commands used (including args like --no-pager).
 
 ### 7) How to run locally (developer sanity check)
 
